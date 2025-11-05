@@ -1,0 +1,18 @@
+# build artifacts
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.dll
+
+# binaries
+ircserv
+irc
+test/ircserv
+
+# macOS
+.DS_Store
+
+# logs
+*.log
