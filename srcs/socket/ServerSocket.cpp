@@ -69,6 +69,10 @@ int ServerSocket::accept()
 
 	if (clientSocket < 0)
 	{
+		if (errno == EAGAIN || errno == EWOULDBLOCK)
+		{
+			return -1;
+		}
 		std::cerr << "ServerSocket accept() : " << strerror(errno) << std::endl;
 		return -1;
 	}

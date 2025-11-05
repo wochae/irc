@@ -99,4 +99,5 @@ void IRCMessage::clear()
 	_command = "";
 	_parameters.clear();
 	_trailing = "";
+	_hasTrailing = false;
 }

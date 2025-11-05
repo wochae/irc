@@ -46,8 +46,11 @@ void SessionManager::unRegisterSession(int sessionIndex)
 
 void SessionManager::unRegisterSessionBySocket(int clientSocket)
 {
-	int sessionIndex = _sessionIndexMap[clientSocket];
-	unRegisterSession(sessionIndex);
+	std::map<int, int>::iterator it = _sessionIndexMap.find(clientSocket);
+	if (it != _sessionIndexMap.end())
+	{
+		unRegisterSession(it->second);
+	}
 }
 
 int SessionManager::takeSessionIndex()
@@ -84,6 +87,9 @@ Session* SessionManager::getSessionBySocket(int clientSocket)
 
 void SessionManager::sendPacketFunc(int sessionIndex, std::string &res)
 {
-	_sessions[sessionIndex]->sendPacket(res);
+	if (_sessions[sessionIndex])
+	{
+		_sessions[sessionIndex]->sendPacket(res);
+	}
 }
 

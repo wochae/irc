@@ -575,7 +575,7 @@ void PacketManager::processTopic(int sessionIndex, IRCMessage &req)
 		return ;
 	}
 	Channel *channel = _channelManager.getChannel(req._parameters[0]);
-	std::string channelName = channel->getChannelName();
+	std::string channelName = req._parameters[0];
 	if(!channel)
 	{
 		message._command = "403";
