@@ -1,5 +1,6 @@
 # irc 실시간 채팅 서버 개선사항
-
+## 포스팅 주소
+https://selfdevman.tistory.com/274
 ## 패치 계획
 - kqueue 이벤트 등록/처리 버그 수정: 읽기 이벤트만 등록, EVFILT_WRITE 오처리 제거, EV_EOF에서 정리 핸들러 호출.
 - 널 포인터 접근 버그 수정: processTopic()에서 채널 널 체크 순서 바로잡기.
